@@ -1,0 +1,18 @@
+<div class="grid wide">
+    <h1>Name Update</h1>
+    <form method="POST" action="/name/{{name._id}}?_method=PUT" class="form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="exam : Tobato" value="{{name.name}}">
+        </div>
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input type="text" name="color" value="{{name.color}}">
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text" name="age"value="{{name.age}}">
+        </div>
+        <button id="btn" type="submit">Save</button>
+    </form>
+</div>

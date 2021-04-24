@@ -1,0 +1,66 @@
+    
+
+
+<div class="grid wide">
+    <h1 class="update__heading">We have a list Names</h1>
+    <div class="content__update">
+        {{#each names}}
+            <div class="group_update">
+                <span class="span__number">{{sum @index 1}}</span>
+                <span class="span__name">{{this.name}}</span>
+                <span class="span__color">{{this.color}}</span>
+                <span class="span__age">{{this.age}}</span>
+                <div class="del-or-up">
+                    <a href="#" 
+                    id="delete"
+                    data-id = "{{this._id}}"
+                     onclick="document.getElementById('modal01').style.display='block'" 
+                     class="update__del del">Delete</a>
+                    <a href="/name/update/{{this._id}}" class="update__upde upde">Update</a>
+                </div>
+            </div>
+        {{/each}}
+
+        
+    </div>   
+</div>
+<div class="modal" id="modal01">
+    <div class="modal__content">
+        <h1 class="modal__h1">Do you want delete ?</h1>
+        <div class="modal__wrap">
+            <button class="modal__btn yes" id="yes">Yes</button>
+            <button class="modal__btn no" onclick="document.getElementById('modal01').style.display='none'">No</button>
+        </div>
+    </div>
+</div>
+
+<form id="delete-name" method="POST" action=""></form>
+
+
+
+<script>
+  
+        var modal = document.getElementById('modal01');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        var deleteform = document.getElementById('delete-name');
+        
+        var getID;
+        var btnDelete = document.getElementById('yes');
+        btnDelete.onclick = function(){
+            deleteform.action = '/name/' + getID + '?_method=DELETE';
+            deleteform.submit();
+        }
+        
+        let article = document.querySelectorAll('#delete');
+            article.forEach(function(x,i){
+                x.addEventListener('click',function(){
+                    getID = x.dataset.id ;
+                })
+            })
+  
+</script>

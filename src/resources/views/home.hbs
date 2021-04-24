@@ -1,0 +1,18 @@
+<div class="grid wide">
+    <h1 class="main-heading">List Names</h1>
+    <div class="row">
+        {{#each duongs}}
+            <div class="col l-3">
+                <div class="item">
+                    <a href="/name/{{this.slug}}" class="a__item"><h1>{{this.name}}</h1></a>
+                    
+                    <h2>{{this.color}}</h2>
+                    <h3>{{this.age}}</h3>
+                </div>
+            </div>
+        {{/each}}
+        
+    </div>
+    
+
+</div>
