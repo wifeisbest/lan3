@@ -1,4 +1,6 @@
 // ======== Require framwork ========= \\
+require('dotenv').config();
+
 const express = require('express');
 const hdbs = require('express-handlebars');
 const path  = require('path');
@@ -8,6 +10,7 @@ const port = 3000;
 
 // ========= App Use and Set ================= \\
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({
     extended: true
